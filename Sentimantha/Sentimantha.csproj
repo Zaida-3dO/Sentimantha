@@ -42,8 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maxxer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextAnalyzer\TextAnalyzer.cs" />
+    <Compile Include="TreeGen.cs" />
+    <Compile Include="Tree\TK_Item.cs" />
+    <Compile Include="Tree\TreeKernel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
