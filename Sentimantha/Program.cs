@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Sentimantha {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("Hello World");
+            Console.WriteLine("Hello World!");
         }
     }
 }
