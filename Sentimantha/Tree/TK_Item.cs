@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Sentimantha.Tree {
-    class TK_Item {
+    public class TK_Item {
         string name;
         public override string ToString() {
             return name;
