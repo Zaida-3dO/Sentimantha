@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sentimantha {
     public static class Maxxer {
-        public static string Expand(string word) {
+        public static List<string> Expand(string word) {
             throw new NotImplementedException();
         }
     }
