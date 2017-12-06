@@ -20,7 +20,7 @@ namespace Sentimantha {
          //explain, when u install vs I'll show u
          //Guy is this thing not taking ur data?
          //alright
-         .//guy i have unlimited data stuff
+         //guy i have unlimited data stuff
             //How?
             //wifi
             //Nice, which one?

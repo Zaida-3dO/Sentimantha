@@ -9,17 +9,24 @@ namespace Sentimantha.TextAnalyzer {
     public class TextAnalyzer {
         HashSet<string> stopwords;
         public TextAnalyzer(string PathToStopWords) {
+            string[] punctuations = { " ", ",", "@", "#", "$", "%", "^", "&", "*", "+", "=", "`", "~", "<", ">", "/", "\\", "|", ":", "(", ")", "?", "!", ";", "-", "–", "_", "[", "]", "\"", ".", "…", "\t", "\n", "\r" };
             stopwords = new HashSet<string>();
             string stopwordsFull =  File.ReadAllText(PathToStopWords);
-            //foreach (string word in query.Split(punctuations, StringSplitOptions.RemoveEmptyEntries).ToList()) {
-            //    results.Add(CorrectWord(word));
-            //}
-            // public static string[] punctuations = { " ",",","@","#","$","%","^","&","*","+","=","`","~","<",">","/","\\","|",":","(",")","?","!",";","-", "–","_","[","]","\"",".","…","\t","\n","\r" };
-
+            foreach (string word in stopwordsFull.Split(punctuations, StringSplitOptions.RemoveEmptyEntries).ToList()) {
+                stopwords.Add(word.ToLower());
+            }
+           
         }
         public bool IsStopWord(string word) {
             return (stopwords.Contains(word.ToLower()));
         }
-        public bool IsCaps(string word) { return false; }
+        public bool IsCaps(string word) {
+            int uppers = 0;
+            foreach (char letter in word) {
+                if (char.IsUpper(letter))
+                    uppers++;
+            }
+            return (uppers >= (word.Length / 2));
+        }
     }
 }
