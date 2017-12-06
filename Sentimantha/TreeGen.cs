@@ -19,21 +19,21 @@ namespace Sentimantha {
             var textanalyzer = new TextAnalyzer.TextAnalyzer(pathToStopWords);
             foreach(var word in expandedText)
                 if(word.StartsWith("@"))
-                    tree.AddNode(new TK_Item(targetId));
+                    tree.AddNode(new TreeKernel(targetId));
                 else if(textanalyzer.IsStopWord(word))
-                    tree.AddNode(new TK_Item(stopwordId));
+                    tree.AddNode(new TreeKernel(stopwordId));
                 else if(word.Equals("NOT"))
-                    tree.AddNode(new TK_Item("NOT"));
+                    tree.AddNode(new TreeKernel("NOT"));
                 else if(word.EndsWith("!"))
-                    tree.AddNode(new TK_Item(exclamationId));
+                    tree.AddNode(new TreeKernel(exclamationId));
                 else{
-                    tree.AddNode(new TK_Item(normalWordId));
+                    tree.AddNode(new TreeKernel(normalWordId));
                     //TODO Tell Ope to create an indexer for the children of the tree kernel in order to 
-                    var item = tree.Children[tree.Children.Count-1];
-                    if(textanalyzer.PercentCaps(word)  > 0.8) 
-                        item.AddNode(new TK_Item(capsId));
-                    item.AddNode(new TK_Item(word));
-                    item.AddNode(new TK_Item("POS"));
+                    var item = tree.Children[(tree.Children.Count()-1)];
+                    if(textanalyzer.IsCaps(word)) 
+                        item.AddNode(new TreeKernel(capsId));
+                    item.AddNode(new TreeKernel(word));
+                    item.AddNode(new TreeKernel("POS"));
                 }
             return tree;
         }
