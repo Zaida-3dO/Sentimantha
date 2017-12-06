@@ -29,6 +29,7 @@ namespace Sentimantha {
                 else{
                     tree.AddNode(new TreeKernel(normalWordId));
                     //TODO Tell Ope to create an indexer for the children of the tree kernel in order to 
+                    //TODO Explain the problem better
                     var item = tree.Children[(tree.Children.Length-1)];
                     if(textanalyzer.IsCaps(word)) 
                         item.AddNode(new TreeKernel(capsId));
