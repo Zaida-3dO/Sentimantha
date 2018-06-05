@@ -12,7 +12,7 @@ namespace Sentimantha {
             foreach (var item in a)
             {
                 Console.Write(item + " ");
-            }
+            } 
             Console.ReadKey();
         }
            
